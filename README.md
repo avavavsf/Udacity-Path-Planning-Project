@@ -1,3 +1,20 @@
+## Reflection
+
+### Prediction: Estimate the other car's location [line 254 to line 292](./src/main.cpp#L254)
+By looping over each sensor fusion data point, we decide whether there is any car ahead, left or right (with respect to the ego vehicle) can cause dangerous situation. We consider is dangerous if its distance to our car is less than 30 meters.
+
+### Behavior planning: Determine our behavior based on the position of the cars around [line 294 to line 320](./src/main.cpp#L294)
+Based on the prediction of the dangerours cars around our car, we either increases the speed, decrease speed, or make a lane change when it is safe. When there is car ahead (within 30 meters), we will change lane if possible, or just decrease our speed. We will also try to reach the maximum speed whenever it is safe for us.
+
+### Trajectory production [line 321 to line 421](./src/main.cpp#L321)
+Here we calculate the trajectory based on the speed, lane number, car coordinates and past path points.
+
+First, the last two points of the previous trajectory along with three points at the distance of 30, 60 and 90 meters, are used to initialize the spline calculation. To make the work less complicated to the spline calculation based on those points, the coordinates are transformed to local car coordinates.
+
+In order to ensure more continuity on the trajectory, the last trajectory points are copied to the new trajectory. The rest of the points are calculated by evaluating the spline and transforming the output coordinates to global coordinates.
+
+## The following is the original readme file from Udacity.
+## ---------------------------------------------------------------------------------------------------
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
    
