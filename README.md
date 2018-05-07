@@ -13,8 +13,7 @@ First, the last two points of the previous trajectory along with three points at
 
 In order to ensure more continuity on the trajectory, the last trajectory points are copied to the new trajectory. The rest of the points are calculated by evaluating the spline and transforming the output coordinates to global coordinates.
 
-## The following is the original readme file from Udacity.
-## ---------------------------------------------------------------------------------------------------
+## The following is the original readme file from Udacity---------------------------------------------------------------------------------------------------
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
    
